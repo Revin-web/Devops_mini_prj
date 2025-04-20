@@ -1,7 +1,4 @@
-global:
-  scrape_interval: 15s
-
 scrape_configs:
-  - job_name: 'prometheus'
+  - job_name: 'my-web-app'
     static_configs:
-      - targets: ['localhost:9090']
+      - targets: ['your-web-app:8080']  # Use your container name
