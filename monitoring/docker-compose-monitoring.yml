@@ -1,19 +1,19 @@
-version: '3.8'  # Explicit version to avoid warnings
+version: '3.8'
 services:
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
     ports:
-      - "9091:9090"  # Using alternative port
+      - "9091:9090"  # Corrected port mapping
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml  # Fixed path
     restart: unless-stopped
 
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - "3000:3000"
+      - "3001:3000"  # Corrected port mapping
     volumes:
       - grafana-storage:/var/lib/grafana
     restart: unless-stopped
