@@ -1,4 +1,24 @@
+version: '3.8'  # Explicit version to avoid warnings
 services:
   prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
     ports:
-      - "9091:9090"  # Changed host port from 9090 to 9091
+      - "9091:9090"  # Using alternative port
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+volumes:
+  grafana-storage:
