@@ -1,15 +1,7 @@
-version: '3'
 services:
   prometheus:
-    image: prom/prometheus
     ports:
-      - "9090:9090"
-    volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-
+      - "9091:9090"  # Changed host port
   grafana:
-    image: grafana/grafana
     ports:
-      - "3000:3000"
-    depends_on:
-      - prometheus
+      - "3001:3000"  # Changed host port
