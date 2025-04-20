@@ -1,0 +1,10 @@
+services:
+  your-website:
+    image: revinluffy/devops-mini.web
+    ports:
+      - "8080:80"
+    labels:
+      prometheus.scrape: 'true'
+    metrics:
+      interval: 15s
+      timeout: 5s
