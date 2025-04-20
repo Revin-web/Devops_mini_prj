@@ -1,5 +1,4 @@
-# Use a lightweight version of NGINX web server
+# Corrected Dockerfile
 FROM nginx:alpine
-
-# Copy your local files into NGINX's web root directory
-COPY . /usr/share/nginx/html
+COPY src/ /usr/share/nginx/html
+EXPOSE 80
